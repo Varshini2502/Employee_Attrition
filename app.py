@@ -32,9 +32,8 @@ def get_user_input():
             data[feat]=0 #Default value for missing features
         return pd.DataFrame(data,index=[0])
 
-user_input=get_user_input()
-user_input['OverTime']=label_encoder.transform(user_input['OverTime'])
-
+imput_df=get_user_input()
+imput_df['OverTime'] =imput_df.transform['OverTime'].map({'Yes':1,'No':0})
 #Predict the attribution
 if st.button("Predict Attribution"):
     prediction = model.predict(user_input)
